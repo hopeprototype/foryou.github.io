@@ -303,14 +303,9 @@ body{
 <body>
 
 <!-- Background Music -->
-<iframe
-    id="ytplayer"
-    width="0"
-    height="0"
-    style="position:absolute;border:0;"
-    allow="autoplay"
-    src="">
-</iframe>
+<audio id="bgMusic" loop>
+    <source src="Palagi.mp3" type="audio/mpeg">
+</audio>
 
 <!-- Floating Hearts -->
 <div class="hearts" id="hearts"></div>
@@ -427,14 +422,13 @@ setInterval(createHeart,250);
 
 const btn = document.getElementById("openBtn");
 const container = document.getElementById("container");
-const player = document.getElementById("ytplayer");
+const music = document.getElementById("bgMusic");
 
 btn.addEventListener("click",()=>{
 
     container.classList.add("open");
 
-    player.src =
-    "https://www.youtube.com/embed/bSz1Liag8No?autoplay=1&loop=1&playlist=bSz1Liag8No&controls=0&modestbranding=1&rel=0";
+    music.play().catch(()=>{});
 
     btn.style.pointerEvents="none";
 });
