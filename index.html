@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy 10 Months ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    overflow:hidden;
+    height:100vh;
+    background:
+        radial-gradient(circle at top,#ffd6ea,#ffb6d5 40%,#ff8bb6 100%);
+    position:relative;
+}
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.hearts{
+    position:fixed;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    z-index:1;
+    pointer-events:none;
+}
+
+.heart{
+    position:absolute;
+    color:rgba(255,255,255,.6);
+    animation:floatUp linear infinite;
+    font-size:20px;
+}
+
+@keyframes floatUp{
+    0%{
+        transform:translateY(100vh) scale(.5);
+        opacity:0;
+    }
+    20%{
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-120px) scale(1.4);
+        opacity:0;
+    }
+}
+
+/* =========================
+   ENVELOPE
+========================= */
+
+.container{
+    position:absolute;
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:5;
+}
+
+.envelope-wrapper{
+    cursor:pointer;
+    transition:all .8s ease;
+}
+
+.envelope{
+    position:relative;
+    width:320px;
+    height:220px;
+    background:#fff0f6;
+    border-radius:10px;
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.2),
+        0 0 30px rgba(255,255,255,.5);
+}
+
+.envelope:before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:0;
+    height:0;
+    border-left:160px solid transparent;
+    border-right:160px solid transparent;
+    border-top:120px solid #ff75a8;
+    transform-origin:top;
+    transition:1s ease;
+    z-index:3;
+}
+
+.heart-seal{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    font-size:45px;
+    z-index:4;
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+    50%{
+        transform:translate(-50%,-50%) scale(1.15);
+    }
+}
+
+.click-text{
+    text-align:center;
+    color:white;
+    margin-top:20px;
+    font-size:18px;
+    text-shadow:0 0 10px rgba(255,255,255,.9);
+}
+
+/* =========================
+   LETTER
+========================= */
+
+.letter{
+    position:absolute;
+    width:90%;
+    max-width:900px;
+    height:85vh;
+    background:rgba(255,255,255,.95);
+    border-radius:25px;
+    padding:40px;
+    overflow-y:auto;
+
+    transform:translateY(300px) scale(.3);
+    opacity:0;
+
+    box-shadow:
+        0 25px 50px rgba(0,0,0,.2),
+        0 0 50px rgba(255,255,255,.5);
+
+    z-index:20;
+}
+
+.letter h1{
+    font-family:'Great Vibes',cursive;
+    text-align:center;
+    font-size:70px;
+    color:#ff4f91;
+    text-shadow:
+        0 0 10px #ff7eb6,
+        0 0 20px #ff7eb6;
+    margin-bottom:25px;
+}
+
+.message{
+    line-height:1.9;
+    color:#444;
+    font-size:18px;
+    text-align:center;
+    animation:fadeWords 2s ease forwards;
+}
+
+@keyframes fadeWords{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =========================
+   PHOTO COLLAGE
+========================= */
+
+.collage{
+    margin-top:40px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:15px;
+}
+
+.collage img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:20px;
+    border:5px solid white;
+    box-shadow:0 10px 20px rgba(0,0,0,.15);
+    transition:.4s;
+}
+
+.collage img:hover{
+    transform:scale(1.05) rotate(2deg);
+}
+
+/* =========================
+   OPEN STATE
+========================= */
+
+.open .envelope:before{
+    transform:rotateX(180deg);
+}
+
+.open .letter{
+    animation:openLetter 2s forwards;
+}
+
+@keyframes openLetter{
+    0%{
+        opacity:0;
+        transform:translateY(250px) scale(.3);
+    }
+    100%{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+/* =========================
+   I LOVE YOU BADGE
+========================= */
+
+.badge{
+    position:fixed;
+    right:25px;
+    top:25px;
+    background:linear-gradient(45deg,#ff4f91,#ff8ec2);
+    color:white;
+    padding:15px 25px;
+    border-radius:40px;
+    font-weight:600;
+    box-shadow:
+        0 0 15px rgba(255,79,145,.8),
+        0 0 30px rgba(255,79,145,.4);
+
+    animation:floatBadge 3s ease-in-out infinite;
+    z-index:30;
+}
+
+@keyframes floatBadge{
+    50%{
+        transform:translateY(-10px);
+    }
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+.letter::-webkit-scrollbar{
+    width:8px;
+}
+
+.letter::-webkit-scrollbar-thumb{
+    background:#ff8ebf;
+    border-radius:10px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+    .letter{
+        padding:25px;
+        width:95%;
+    }
+
+    .letter h1{
+        font-size:50px;
+    }
+
+    .message{
+        font-size:16px;
+    }
+
+    .envelope{
+        width:260px;
+        height:180px;
+    }
+
+    .envelope:before{
+        border-left:130px solid transparent;
+        border-right:130px solid transparent;
+        border-top:100px solid #ff75a8;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- Background Music -->
+<audio id="bgMusic" loop>
+    <!-- Replace with your own romantic MP3 -->
+    <source src="your-music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Floating Hearts -->
+<div class="hearts" id="hearts"></div>
+
+<!-- Floating Badge -->
+<div class="badge">❤️ I Love You ❤️</div>
+
+<div class="container" id="container">
+
+    <div class="envelope-wrapper" id="openBtn">
+
+        <div class="envelope">
+            <div class="heart-seal">❤️</div>
+        </div>
+
+        <div class="click-text">
+            Click the Envelope 💌
+        </div>
+
+    </div>
+
+    <div class="letter">
+
+        <h1>Happy 10 Months ❤️</h1>
+
+        <div class="message">
+            <p>
+                My Love,
+            </p>
+
+            <br>
+
+            <p>
+                <!-- PLACEHOLDER FOR YOUR LETTER -->
+                Replace this section with your heartfelt message.
+                Write about your favorite memories together,
+                the laughter you shared, the challenges you've
+                overcome, and how much she means to you.
+            </p>
+
+            <br>
+
+            <p>
+                Every day with you feels brighter, warmer,
+                and more beautiful. Thank you for making these
+                ten months so unforgettable. ❤️
+            </p>
+        </div>
+
+        <div class="collage">
+
+            <!-- Replace these photos -->
+
+            <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=800" alt="">
+
+            <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=800" alt="">
+
+            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800" alt="">
+
+            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=800" alt="">
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+/* =========================
+   HEART PARTICLES
+========================= */
+
+const heartsContainer = document.getElementById("hearts");
+
+function createHeart(){
+
+    const heart = document.createElement("div");
+
+    heart.classList.add("heart");
+
+    heart.innerHTML = "❤";
+
+    heart.style.left = Math.random()*100 + "%";
+
+    heart.style.fontSize =
+        (15 + Math.random()*30) + "px";
+
+    heart.style.animationDuration =
+        (5 + Math.random()*8) + "s";
+
+    heartsContainer.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },13000);
+}
+
+setInterval(createHeart,250);
+
+/* =========================
+   OPEN LETTER
+========================= */
+
+const btn = document.getElementById("openBtn");
+const container = document.getElementById("container");
+const music = document.getElementById("bgMusic");
+
+btn.addEventListener("click",()=>{
+
+    container.classList.add("open");
+
+    music.play().catch(()=>{});
+
+    btn.style.pointerEvents="none";
+});
+
+</script>
+
+</body>
+</html>
